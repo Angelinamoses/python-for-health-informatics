@@ -1,0 +1,10 @@
+Patient ID: P001
+Patient Name: John Doe
+Department: General Medicine
+This line is appended to the report.
+1001,P001,34,Female,General Medicine,Hypertension,New,18,80,No
+1001,P001,34,Female,General Medicine,Hypertension,New,18,80,No
+1002,P002,67,Male,Cardiology,Arrhythmia,Follow-up,42,220,Yes
+1005,P005,73,Female,Cardiology,Heart Failure,Follow-up,55,500,Yes
+2026-06-02: Dataset reviewed for admission trend.
+This is a safe way to append to the file.
