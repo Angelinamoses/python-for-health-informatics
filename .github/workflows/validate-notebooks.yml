@@ -3,11 +3,10 @@ name: Validate Notebooks
 on: [push, pull_request]
 
 jobs:
-validate:
-runs-on: ubuntu-latest
+ validate:
+  runs-on: ubuntu-latest
 
-```
-steps:
+  steps:
   - uses: actions/checkout@v4
 
   - name: Set up Python
@@ -20,17 +19,11 @@ steps:
 
   - name: Validate notebooks run without errors
     run: |
-      notebooks=(
-        "n1_python_fundamentals.ipynb"
-        "n2_control_flow.ipynb"
-        "n3_data_structures.ipynb"
-        "n4_functions.ipynb"
-        "n6_file_handling.ipynb"
-        "n7_oop.ipynb"
-      )
+      jupyter nbconvert --to notebook --execute n1_python_fundamentals.ipynb --output /tmp/test.ipynb
+      jupyter nbconvert --to notebook --execute n2_control_flow.ipynb --output /tmp/test.ipynb
+      jupyter nbconvert --to notebook --execute n3_data_structures.ipynb --output /tmp/test.ipynb
+      jupyter nbconvert --to notebook --execute n4_functions.ipynb --output /tmp/test.ipynb
+      jupyter nbconvert --to notebook --execute n6_file_handling.ipynb --output /tmp/test.ipynb
+      jupyter nbconvert --to notebook --execute n7_oop.ipynb --output /tmp/test.ipynb
 
-      for nb in "${notebooks[@]}"; do
-        echo "Validating $nb"
-        jupyter nbconvert --to notebook --execute "$nb" --output /tmp/test.ipynb
-      done
-```
+
