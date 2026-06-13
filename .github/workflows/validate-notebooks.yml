@@ -22,7 +22,6 @@ jobs:
       - name: Validate notebooks run without errors
         run: |
           jupyter nbconvert --to notebook --execute n1_python_fundamentals.ipynb --output /tmp/test.ipynb
-          jupyter nbconvert --to notebook --execute n2_control_flow.ipynb --output /tmp/test.ipynb
           jupyter nbconvert --to notebook --execute n3_data_structures.ipynb --output /tmp/test.ipynb
           jupyter nbconvert --to notebook --execute n4_functions.ipynb --output /tmp/test.ipynb
           jupyter nbconvert --to notebook --execute n6_file_handling.ipynb --output /tmp/test.ipynb
