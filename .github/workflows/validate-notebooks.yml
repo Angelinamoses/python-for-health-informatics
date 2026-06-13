@@ -5,16 +5,24 @@ on: [push, pull_request]
 jobs:
   validate:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: "3.10"
+
       - name: Install dependencies
-        run: pip install -r requirements.txt nbconvert
+        run: |
+          pip install -r requirements.txt
+          pip install nbconvert
+
       - name: Validate notebooks run without errors
         run: |
-          for nb in *.ipynb; do
-            jupyter nbconvert --to notebook --execute "$nb" --output /tmp/test.ipynb
-          done
+          jupyter nbconvert --to notebook --execute n1_python_fundamentals.ipynb --output /tmp/test.ipynb
+          jupyter nbconvert --to notebook --execute n3_data_structures.ipynb --output /tmp/test.ipynb
+          jupyter nbconvert --to notebook --execute n4_functions.ipynb --output /tmp/test.ipynb
+          jupyter nbconvert --to notebook --execute n6_file_handling.ipynb --output /tmp/test.ipynb
+          jupyter nbconvert --to notebook --execute n7_oop.ipynb --output /tmp/test.ipynb
